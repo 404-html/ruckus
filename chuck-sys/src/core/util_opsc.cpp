@@ -1796,7 +1796,7 @@ bool OSC_Receiver::get_mesg( OSCMesg * bucket )
 
     if( has_mesg() )
     {
-        // next write _may_ fuck with _in_read 
+        // next write _may_ butterfly with _in_read 
         // where when resizing the buffer...
         *bucket = *next_read();
         // CK_FPRINTF_STDERR( "r" ); //read: %d of %d \n", _in_read, _inbox_size);
@@ -1864,7 +1864,7 @@ OSC_Receiver::next_write()
          // make a separate case for scheduled messages...
          // throw them into a heap...
 
-         // fuck...back to the todo...
+         // butterfly...back to the todo...
       
          int new_size = ( _inbox_size * 2 > OSCINBOXMAX ) ? OSCINBOXMAX : _inbox_size * 2 ;
 
